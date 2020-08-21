@@ -9,10 +9,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.Utilities.CommonMethodsHelper;
+
 public class SelectFlightPage {
 
 	WebDriver driver;
-	
+	CommonMethodsHelper commonMethodsHelper;
 	public SelectFlightPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -56,8 +58,8 @@ public class SelectFlightPage {
 	}
 	
 	public void clickBookButton() {
-		System.out.println();
 		String cheapFlight = getCheapestFlight();
+		commonMethodsHelper.waitForElementToAppear(driver, cheapFlight);
 		if(driver.findElements(By.xpath(cheapFlight)).size()==1) {
 			WebElement bookElement = driver.findElement(By.xpath(cheapFlight));
 			bookElement.click();

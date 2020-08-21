@@ -60,7 +60,7 @@ public class CommonMethodsHelper {
 	}
 	
 	public void waitForElementToAppear(WebDriver driver,String loc) {
-        Wait<WebDriver> wait = new WebDriverWait(driver, 50);
+        Wait<WebDriver> wait = new WebDriverWait(driver, 80);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(loc)));
         
         //By.xpath("\"" + loc + "\"")
